@@ -10,6 +10,6 @@ The planes can land and take off provided that the weather is sunny. Occasionall
 * Rspec
 
 ####To Do list
-- [x] Class and tests for Plane
-- [x] Class and tests for Airport
-- [x] Class and tests for Weather
+- [] Class and tests for Plane
+- [] Class and tests for Airport
+- [] Class and tests for Weather
