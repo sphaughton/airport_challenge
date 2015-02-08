@@ -13,10 +13,4 @@ class Airport
 		@planes_can_fly
   end
 
-	def clear_plane_land
-	end
-
-	def clear_plane_take_off
-	end
-
 end
