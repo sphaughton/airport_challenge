@@ -14,9 +14,11 @@ class Plane
 		@status = 'flying'
 	end
 
-	def clear_take_off
+	def request_take_off
+		take_off if airport.clear_take_off
 	end
 
-	def clear_land
+	def request_land
+		land(airport) if airport.clear_landing
 	end
 end

@@ -22,9 +22,9 @@ describe Plane do
 		expect(plane.status).to eq 'flying'                                          
 	end
 
-	it "should be able to clear for take off" do
+	it "should be able request take off" do
 	end
 
-	it "should be able to clear for landing" do
+	it "should be able request landing" do
 	end
 end
