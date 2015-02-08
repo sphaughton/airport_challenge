@@ -1,15 +1,16 @@
 class Airport
 	
-	def plane_can_land
-	end
+ def initialize
+    @planes_can_land = true
+		@planes_can_fly = true
+  end
 
-	def plane_can_take_off
-	end
+  def planes_can_land?
+		@planes_can_land
+  end
 
-	def clear_plane_land
-	end
-
-	def clear_plane_take_off
-	end
+  def planes_can_fly?
+		@planes_can_fly
+  end
 
 end

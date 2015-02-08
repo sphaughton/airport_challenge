@@ -1,22 +1,23 @@
+require './lib/weather'
+
 class Plane
+
+	include Weather
 
 	attr_reader :status
 
 	def initialize
-		@status = 'flying'
+		@status
 	end
 
-	def land(airport)
-		@status = airport
+	def land
+		raise "Plane cannot land due to stormy weather" if sunny! == false
+		@status = 'landed'
 	end
 
 	def take_off
+		raise "Plane cannot take off due to stormy weather" if sunny! == false
 		@status = 'flying'
 	end
 
-	def clear_take_off
-	end
-
-	def clear_land
-	end
 end
