@@ -7,7 +7,7 @@ describe Airport do
 	include Weather
 
 	let(:airport){Airport.new}
-	let(:plane){double :plane}
+	let(:plane){double :plane, :status}
 	let(:weather){double :weather}
 
 	it "planes should be able to land" do
@@ -19,10 +19,11 @@ describe Airport do
 	end
 
 	it "will not allow planes to land when the weather is stormy" do
-		expect(airport.planes_can_land).to raise_error(RuntimeError, "Plane cannot land due to stormy weather") if sunny! == false
+		expect(plane.land).to raise_error(RuntimeError, "Plane cannot land due to stormy weather") if sunny! == false
 	end
 
-	it "should be able to stop a plane taking it if it's stormy" do
-		expect(airport.be_planes_can_fly).to raise_error(RuntimeError, "Plane cannot take off due to stormy weather") if sunny! == false
+	it "should be able to stop a plane taking off it if it's stormy" do
+		expect(plane.take_off).to raise_error(RuntimeError, "Plane cannot take off due to stormy weather") if sunny! == false
 	end
+	
 end
