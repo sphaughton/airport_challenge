@@ -1,16 +1,17 @@
-class Airport
-	
- def initialize
-    @planes_can_land = true
-		@planes_can_fly = true
+require 'weather'
+
+class Airport; include Weather
+
+  def initialize(options = {})
+    @weather = stormy?
   end
 
-  def planes_can_land?
-		@planes_can_land
+  def land(plane)
+    raise "Too stormy to land" if stormy?
   end
 
-  def planes_can_fly?
-		@planes_can_fly
+  def take_off(plane)
+    raise "Too stormy to take off" if stormy?
   end
 
 end

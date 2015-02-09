@@ -10,7 +10,7 @@ The planes can land and take off provided that the weather is sunny. Occasionall
 * Rspec
 
 ####To Do list
-- [ ] Refactor Class and tests for Plane
-- [ ] Refactor Class and tests for Airport
-- [ ] Refactor Class for Weather
+- [x] Refactor Class and tests for Plane to test correctly
+- [x] Refactor Class and tests for Airport to test correctly
+- [x] Refactor Module for Weather to test correctly
 - [ ] Grand finale

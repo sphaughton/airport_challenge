@@ -1,17 +1,11 @@
 module Weather
 
-	def weather_today
+  def forecast
+    rand(100) < 15
+  end
 
-		weather_today = ["sunny", "stormy"]
-
-	end
-
-	def sunny!
-		
-		unless weather_today.sample == "stormy"
-			@stormy = true
-		end
-
-	end
+   def stormy?
+    @forecast
+  end
 
 end

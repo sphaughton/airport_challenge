@@ -1,29 +1,40 @@
-require './lib/plane'
-require './lib/airport'
-require './lib/weather'
+require_relative '../lib/plane'
+require_relative '../lib/airport'
+require_relative '../lib/weather'
 
 describe Airport do
 
-	include Weather
-
 	let(:airport){Airport.new}
-	let(:plane){double :plane, :status}
-	let(:weather){double :weather}
+	let(:plane){double "Plane", landed: "landed", take_off: "flying"}
 
-	it "planes should be able to land" do
-		expect(airport).to be_planes_can_land
+context "In sunny weather" do
+
+	it "should let planes land" do
+			airport.land(plane)
+			expect(plane.landed).to eq "landed"
 	end
 
-	it "planes should be able to take off" do
-		expect(airport).to be_planes_can_fly
+	it "should let planes take off" do
+			airport.take_off(plane)
+			expect(plane.take_off).to eq "flying"
 	end
 
-	it "will not allow planes to land when the weather is stormy" do
-		expect(plane.land).to raise_error(RuntimeError, "Plane cannot land due to stormy weather") if sunny! == false
+end
+
+context "In stormy weather" do
+
+	before do
+		allow(airport).to receive(:stormy?).and_return true
 	end
 
-	it "should be able to stop a plane taking off it if it's stormy" do
-		expect(plane.take_off).to raise_error(RuntimeError, "Plane cannot take off due to stormy weather") if sunny! == false
+	it "should not let planes land" do
+		expect {airport.land(plane)}.to raise_error(RuntimeError, "Too stormy to land")
 	end
+
+	it "should not let planes take off" do
+		expect {airport.take_off(plane)}.to raise_error(RuntimeError, "Too stormy to take off")
+	end
+
+end
 	
 end
