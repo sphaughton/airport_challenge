@@ -8,14 +8,17 @@ describe Plane do
 		expect(plane.status).to eq "landed"
 	end
 
-	it "shows a flying status when flying" do
+context "status" do
+
+	it "shows 'flying' when flying" do
 		plane.take_off
 		expect(plane.status).to eq "flying"
 	end
 
-	it "shows a landed status when landed" do
+	it "shows 'landed' when landed" do
 		plane.take_off
 		plane.landed
 		expect(plane.status).to eq "landed"
 	end
+end
 end
