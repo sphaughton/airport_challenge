@@ -3,7 +3,6 @@ require 'weather'
 class Airport; include Weather
 
   def initialize(options = {})
-    @weather = stormy?
   end
 
   def land(plane)
