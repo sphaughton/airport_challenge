@@ -1,21 +1,25 @@
 class Plane
 
-	attr_reader :status
+  attr_reader :status
 
-	def initialize
-		@status = "landed"
-	end
+  def initialize(status)
+    @plane_status = "landed"
+  end
 
-	def landed
-		raise "Plane is already landed" if already_landed?
-		@status = "landed"
-	end
+  def status
+    @plane_status
+  end
 
-	def take_off
-		@status = "flying"
-	end
+  def landed
+    raise "Plane is already landed" if already_landed?
+    @plane_status = "landed"
+  end
 
-	def already_landed?
-		@status != "flying"
-	end
+  def take_off
+    @plane_status = "flying"
+  end
+
+  def already_landed?
+    @plane_status != "flying"
+  end
 end
